@@ -1,0 +1,72 @@
+ja:
+  activerecord:
+    models:
+      book: 書籍
+
+    attributes:
+      book:
+        book: 書籍
+        author: 著者
+        memo: メモ
+        title: タイトル
+        picture: 画像
+
+  books:
+    # view
+    index:
+      Books: 書籍一覧
+      Author: 著者
+      Memo: メモ
+      Title: タイトル
+      Picture: 画像
+
+      New Book: 書籍追加
+      Show: 表示
+      Edit: 編集
+      Destroy: 削除
+
+      SaveError: 件のエラーが発生しました。
+      DeleteConfirm: 削除しますか？
+
+    new:
+      New Book: 書籍追加
+      Back: 戻る
+
+    show:
+      Author: 著者
+      Memo: メモ
+      Title: タイトル
+      Picture: 画像
+
+      Edit: 編集
+      Back: 戻る
+
+    edit:
+      Editing Book: 書籍編集
+      Show: 表示
+      Back: 戻る
+
+    # controller
+    create:
+      notice: 書籍を保存しました
+
+    update:
+      notice: 書籍を更新しました
+
+    destroy:
+    notice: 書籍を削除しました
+
+# carrierwave
+  errors:
+    messages:
+      carrierwave_processing_error: 処理できませんでした
+      carrierwave_integrity_error: は許可されていないファイルタイプです
+      carrierwave_download_error: はダウンロードできません
+      extension_whitelist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
+      extension_blacklist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできないファイルタイプ: %{prohibited_types}"
+      content_type_whitelist_error: "%{content_type}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
+      content_type_blacklist_error: "%{content_type}ファイルのアップロードは許可されていません"
+      rmagick_processing_error: "rmagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      mini_magick_processing_error: "MiniMagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      min_size_error: "を%{min_size}以上のサイズにしてください"
+      max_size_error: "を%{max_size}以下のサイズにしてください"
