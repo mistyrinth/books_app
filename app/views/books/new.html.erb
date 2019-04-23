@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <% if I18n.locale.to_s == "en" %>
+      <%= link_to('日本語', :locale => 'ja') %>
+    <% else %>
+      <%= link_to('English', :locale => 'en') %>
+    <% end %>
+  </nav>
+</header>
+
+<h1><%= t('.New Book') %></h1>
+
+<%= render 'form', book: @book %>
+
+<%= link_to t('.Back'), books_path %>
