@@ -19,7 +19,6 @@ ja:
       Memo: メモ
       Title: タイトル
       Picture: 画像
-      Page: ページ
 
       New Book: 書籍追加
       Show: 表示
@@ -57,16 +56,7 @@ ja:
     destroy:
     notice: 書籍を削除しました
 
-  # kaminari
-  views:
-    pagination:
-      first: 最初
-      last: 最後
-      previous: 前
-      next: 次
-      truncate: "..."
-
-  # carrierwave
+# carrierwave
   errors:
     messages:
       carrierwave_processing_error: 処理できませんでした
