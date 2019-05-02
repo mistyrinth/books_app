@@ -19,6 +19,7 @@ en:
       Memo: Memo
       Title: Title
       Picture: Picture
+      Page: Page
 
       New Book: New Books
       Show: Show
@@ -56,7 +57,16 @@ en:
     destroy:
     notice: Book was successfully destroyed.
 
-# carrierwave
+  # kaminari
+  views:
+    pagination:
+      first: first
+      last: last
+      previous: previous
+      next: next
+      truncate: "..."
+
+  # carrierwave
   errors:
     messages:
       carrierwave_processing_error: failed to be processed

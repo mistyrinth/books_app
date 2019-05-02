@@ -9,6 +9,7 @@ gem 'awesome_print'
 gem 'carrierwave'
 gem 'i18n_generators'
 gem 'carrierwave-i18n'
+gem 'kaminari'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
