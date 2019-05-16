@@ -84,3 +84,14 @@ ja:
   layouts:
     application:
       sign_out: "ログアウト"
+
+  # devise
+  devise:
+    passwords:
+      edit:
+        minimum_password_length: "（%{count}文字以上）"
+    registrations:
+      edit:
+        minimum_password_length: "（%{count}文字以上）"
+      new:
+        minimum_password_length: "（%{count}文字以上）"
