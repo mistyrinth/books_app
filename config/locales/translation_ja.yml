@@ -80,3 +80,18 @@ ja:
       mini_magick_processing_error: "MiniMagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
       min_size_error: "を%{min_size}以上のサイズにしてください"
       max_size_error: "を%{max_size}以下のサイズにしてください"
+
+  layouts:
+    application:
+      sign_out: "ログアウト"
+
+  # devise
+  devise:
+    passwords:
+      edit:
+        minimum_password_length: "（%{count}文字以上）"
+    registrations:
+      edit:
+        minimum_password_length: "（%{count}文字以上）"
+      new:
+        minimum_password_length: "（%{count}文字以上）"

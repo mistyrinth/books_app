@@ -80,3 +80,18 @@ en:
       mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
       min_size_error: "File size should be greater than %{min_size}"
       max_size_error: "File size should be less than %{max_size}"
+
+  layouts:
+    application:
+      sign_out: "Sign out"
+
+  # devise
+  devise:
+    passwords:
+      edit:
+        minimum_password_length: "(%{count} characters minimum)"
+    registrations:
+      edit:
+        minimum_password_length: "(%{count} characters minimum)"
+      new:
+        minimum_password_length: "(%{count} characters minimum)"
