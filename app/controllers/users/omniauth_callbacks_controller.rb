@@ -1,5 +1,4 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # protect_from_forgery
   def github
     @user = User.find_for_github_oauth(request.env["omniauth.auth"], current_user)
 
