@@ -1,6 +1,11 @@
+require 'open-uri'
+
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
     @user = User.find_for_github_oauth(request.env["omniauth.auth"], current_user)
+    file = open(request.env["omniauth.auth"]["info"]["image"])
+    filename = File.basename(file)
+    @user.image.attach(io: file, filename: "#{filename}.jpg", content_type: file.content_type)
 
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication

@@ -29,6 +29,8 @@ en:
       SaveError: Save failed.
       DeleteConfirm: Are you sure?
 
+      signing_in_user: "Signing in as %{username}"
+
     new:
       New Book: New Book
       Back: Back

@@ -6,6 +6,11 @@
       <%= link_to('English', :locale => 'en') %>
     <% end %>
   </nav>
+
+  <% if @user.image.attached? %>
+    <%= t('.signing_in_user', username: @user.name) %>
+    <%= image_tag @user.image.variant(resize: "50x50") %>
+  <% end %>
 </header>
 
 <p id="notice"><%= notice %></p>
