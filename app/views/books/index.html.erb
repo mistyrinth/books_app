@@ -7,9 +7,9 @@
     <% end %>
   </nav>
 
-  <% if @user.image.attached? %>
-    <%= t('.signing_in_user', username: @user.name) %>
-    <%= image_tag @user.image.variant(resize: "50x50") %>
+  <% if @current_user.image.attached? %>
+    <%= t('.signing_in_user', username: @current_user.name) %>
+    <%= image_tag @current_user.image.variant(resize: "50x50") %>
   <% end %>
 </header>
 
