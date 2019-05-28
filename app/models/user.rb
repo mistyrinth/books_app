@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: %i(github)
 
+  # ActiveRecord
+  has_one_attached :image
+
   # omniauth
   def self.create_unique_string
     SecureRandom.uuid

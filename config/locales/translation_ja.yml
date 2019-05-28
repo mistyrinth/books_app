@@ -29,6 +29,8 @@ ja:
       SaveError: 件のエラーが発生しました。
       DeleteConfirm: 削除しますか？
 
+      signing_in_user: "%{username}でログイン中"
+
     new:
       New Book: 書籍追加
       Back: 戻る
