@@ -51,12 +51,6 @@ class BooksController < ApplicationController
     end
   end
 
-  def comments_count(type, id)
-    Comment.where(commentable_type: type, commentable_id: id ).count
-  end
-
-  helper_method :comments_count
-
   private
 
   def set_book
