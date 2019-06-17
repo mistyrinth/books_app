@@ -14,7 +14,7 @@ class BooksController < ApplicationController
 
   def show
     @comment = @book.comments.build
-    @comments = Comment.where(commentable_type: "books", commentable_id: @book ).order(created_at: :desc)
+    @comments = Comment.where(commentable_type: "books", commentable_id: @book).order(created_at: :desc)
   end
 
   def create
