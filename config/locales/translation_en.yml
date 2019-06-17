@@ -2,6 +2,8 @@ en:
   activerecord:
     models:
       book: book
+      report: report
+      comment: コメント
 
     attributes:
       book:
@@ -10,6 +12,14 @@ en:
         memo: memo
         title: title
         picture: picture
+      report:
+        report: report
+        title: title
+        body: body
+
+  helpers:
+    label:
+      comment: comment
 
   books:
     # view
@@ -20,16 +30,15 @@ en:
       Title: Title
       Picture: Picture
       Page: Page
+      To_Reports: Reports
 
-      New Book: New Books
-      Show: Show
+      New Book: New Book
+      Show: Details
       Edit: Edit
       Destroy: Destroy
 
       SaveError: Save failed.
       DeleteConfirm: Are you sure?
-
-      signing_in_user: "Signing in as %{username}"
 
     new:
       New Book: New Book
@@ -46,8 +55,8 @@ en:
 
     edit:
       Editing Book: Editing Book
-      Show: Show
-      Back: Back
+      Show: Details
+      Back: Top
 
     # controller
     create:
@@ -58,6 +67,67 @@ en:
 
     destroy:
     notice: Book was successfully destroyed.
+
+  reports:
+    # view
+    index:
+      Reports: Reports
+      Title: Title
+      Date: Date
+      Page: Page
+      To_Books: Books
+
+      New Report: New Report
+      Show: Details
+      Edit: Edit
+      Destroy: Destroy
+
+      SaveError: Save failed.
+      DeleteConfirm: Are you sure?
+
+      signing_in_user: "Signing in as %{username}"
+
+    new:
+      New Report: New Report
+      Back: Back
+
+    show:
+      Title: Title
+      Body: Body
+      Edit: Edit
+      Back: Back
+
+    edit:
+      Editing Report: Editing Report
+      Show: Details
+      Back: Top
+
+    # controller
+    create:
+      notice: Report was successfully created.
+
+    update:
+      notice: Report was successfully updated.
+
+    destroy:
+    notice: Report was successfully destroyed.
+
+  comments:
+    # view
+    show:
+      Comments: Comments
+      Destroy: Destroy
+      DeleteConfirm: Are you sure?
+
+    # controller
+    create:
+      notice: Comment was successfully created.
+
+    update:
+      notice: Comment was successfully updated.
+
+    destroy:
+    notice: Comment was successfully destroyed.
 
   # kaminari
   views:
@@ -86,6 +156,7 @@ en:
   layouts:
     application:
       sign_out: "Sign out"
+      signing_in_user: "Signing in as %{username}"
 
   # devise
   devise:

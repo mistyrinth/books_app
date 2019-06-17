@@ -1,34 +1,29 @@
-<header>
-  <nav>
-    <% if I18n.locale.to_s == "en" %>
-      <%= link_to('日本語', :locale => 'ja') %>
-    <% else %>
-      <%= link_to('English', :locale => 'en') %>
-    <% end %>
-  </nav>
-</header>
-
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="details">
   <strong><%= t('.Title') %>:</strong>
   <%= @book.title %>
 </p>
 
-<p>
+<p class="details">
   <strong><%= t('.Memo') %>:</strong>
-  <%= @book.memo %>
+  <%= simple_format(@book.memo) %>
 </p>
 
-<p>
+<p class="details">
   <strong><%= t('.Author') %>:</strong>
   <%= @book.author %>
 </p>
 
-<p>
-  <strong><%= t('.Picture') %>:</strong>
-  <%= image_tag(@book.picture_url) if @book.picture.present? %>
-</p>
+<div class="details book-image-detail">
+  <p><strong><%= t('.Picture') %>:</strong></p>
+  <%= image_tag(@book.picture_url, width: '150', class: "book-image") if @book.picture.present? %>
+</div>
+
+<br>
+<%= render 'comments/form', comment: @comment %>
+
+<%= render 'comments/show', comments: @comments %>
 
 <%= link_to t('.Edit'), edit_book_path(@book) %> |
 <%= link_to t('.Back'), books_path %>

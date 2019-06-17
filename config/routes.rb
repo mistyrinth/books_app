@@ -5,7 +5,15 @@ Rails.application.routes.draw do
   }
 
   root to: 'books#index'
-  resources :books
+
+  resources :books do
+    resources :comments
+  end
+  
+  resources :reports do
+    resources :comments
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope "(:locale)" do
     resources :users

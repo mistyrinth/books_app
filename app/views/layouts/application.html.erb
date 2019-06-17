@@ -7,11 +7,31 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
+
+  <header>
+    <nav>
+      <% if I18n.locale.to_s == "en" %>
+        <%= link_to('日本語', :locale => 'ja') %>
+      <% else %>
+        <%= link_to('English', :locale => 'en') %>
+      <% end %>
+    </nav>
+
+    <div class="sign_in_user_container">
+      <% if user_signed_in? %>
+        <p class="user_image"><%= image_tag current_user.image.variant(resize: "50x50") %></p>
+        <p class="user_name"><%= t('.signing_in_user', username: current_user.name) %><p>
+      <% end %>
+    </div>
+
+  </header>
 
   <body>
     <%= yield %>
 
+    <br><br>
     <% if user_signed_in? %>
       <p><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %></p>
     <% end %>

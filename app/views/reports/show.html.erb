@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p class="details">
+  <strong><%= t('.Title') %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p class="details">
+  <strong><%= t('.Body') %>:</strong>
+  <%= simple_format(@report.body) %>
+</p>
+
+<br>
+<%= render 'comments/form', comment: @comment %>
+
+<%= render 'comments/show', comments: @comments %>
+
+<%= link_to t('.Edit'), edit_report_path(@report) %> |
+<%= link_to t('.Back'), reports_path %>

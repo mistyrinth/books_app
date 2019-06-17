@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<div class="headding-container">
+  <h1><%= t('.Reports') %></h1>
+  <p><%= link_to t('.New Report'), new_report_path %></p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.Title') %></th>
+      <th><%= t('.Date') %></th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr  class="column_name">
+        <td><%= report.title %></td>
+        <td><%= report.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td>
+          <% comments_count =  Comment.where(commentable_type: "reports", commentable_id: report.id ).count %>
+          <% if comments_count > 0 %>
+            <i class="fas fa-comment index-icon"></i>
+             <%= comments_count %>
+          <% end %>
+        </td>
+        <td><%= link_to t('.Show'), report %></td>
+        <td><%= link_to t('.Edit'), edit_report_path(report) %></td>
+        <td><%= link_to t('.Destroy'), report, method: :delete, data: { confirm: t('.DeleteConfirm') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="page">
+  <% if Report.count > 5%>
+    <p><%= t('.Page') + ":"%></p>
+    <p><%= paginate @reports %></p>
+  <% end %>
+</div>
+
+<%= link_to t('.To_Books'), books_path %>
