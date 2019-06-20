@@ -1,0 +1,10 @@
+<%= form_with(local: true, url: [@commentable, @comment], method: 'post' ) do |form| %>
+  <div class="comment">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, size: "40x3"  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

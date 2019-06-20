@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       book: 書籍
+      report: 日報
+      comment: コメント
 
     attributes:
       book:
@@ -10,6 +12,14 @@ ja:
         memo: メモ
         title: タイトル
         picture: 画像
+      report:
+        report: 日報
+        title: タイトル
+        body: 内容
+
+  helpers:
+    label:
+      comment: コメント 
 
   books:
     # view
@@ -20,9 +30,10 @@ ja:
       Title: タイトル
       Picture: 画像
       Page: ページ
+      To_Reports: 日報一覧へ
 
-      New Book: 書籍追加
-      Show: 表示
+      New Book: 新規書籍
+      Show: 詳細表示
       Edit: 編集
       Destroy: 削除
 
@@ -32,7 +43,7 @@ ja:
       signing_in_user: "%{username}でログイン中"
 
     new:
-      New Book: 書籍追加
+      New Book: 新規書籍
       Back: 戻る
 
     show:
@@ -46,8 +57,8 @@ ja:
 
     edit:
       Editing Book: 書籍編集
-      Show: 表示
-      Back: 戻る
+      Show: 詳細表示
+      Back: トップへ
 
     # controller
     create:
@@ -58,6 +69,65 @@ ja:
 
     destroy:
     notice: 書籍を削除しました
+
+  reports:
+    # view
+    index:
+      Reports: 日報一覧
+      Title: タイトル
+      Date: 日付
+      Page: ページ
+      To_Books: 書籍一覧へ
+
+      New Report: 新規日報
+      Show: 詳細表示
+      Edit: 編集
+      Destroy: 削除
+
+      SaveError: 件のエラーが発生しました。
+      DeleteConfirm: 削除しますか？
+
+    new:
+      New Report: 新規日報
+      Back: 戻る
+
+    show:
+      Title: タイトル
+      Body: 本文
+      Edit: 編集
+      Back: 戻る
+
+    edit:
+      Editing Report: 日報編集
+      Show: 詳細表示
+      Back: トップへ
+
+    # controller
+    create:
+      notice: 日報を保存しました
+
+    update:
+      notice: 日報を更新しました
+
+    destroy:
+    notice: 日報を削除しました
+
+  comments:
+    # view
+    show:
+      Comments: コメント一覧
+      Destroy: 削除
+      DeleteConfirm: 削除しますか？
+
+    # controller
+    create:
+      notice: コメントを保存しました
+
+    update:
+      notice: コメントを更新しました
+
+    destroy:
+      notice: コメントを削除しました
 
   # kaminari
   views:
@@ -86,6 +156,7 @@ ja:
   layouts:
     application:
       sign_out: "ログアウト"
+      signing_in_user: "%{username}でログイン中"
 
   # devise
   devise:
