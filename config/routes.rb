@@ -14,7 +14,14 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users do
+    member do
+      get :follows, :followers, :timeline
+    end
+  end
+
+  resources :relationships, only: [:create, :destroy]
+
   scope "(:locale)" do
     resources :users
   end

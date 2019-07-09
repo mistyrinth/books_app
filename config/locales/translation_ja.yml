@@ -4,6 +4,7 @@ ja:
       book: 書籍
       report: 日報
       comment: コメント
+      user: ユーザー
 
     attributes:
       book:
@@ -16,6 +17,10 @@ ja:
         report: 日報
         title: タイトル
         body: 内容
+      user:
+        name: ユーザー名
+        email: Eメール
+        image: 画像
 
   helpers:
     label:
@@ -26,11 +31,9 @@ ja:
     index:
       Books: 書籍一覧
       Author: 著者
-      Memo: メモ
+      Contributor: 投稿者
       Title: タイトル
-      Picture: 画像
       Page: ページ
-      To_Reports: 日報一覧へ
 
       New Book: 新規書籍
       Show: 詳細表示
@@ -40,25 +43,20 @@ ja:
       SaveError: 件のエラーが発生しました。
       DeleteConfirm: 削除しますか？
 
-      signing_in_user: "%{username}でログイン中"
-
     new:
       New Book: 新規書籍
-      Back: 戻る
 
     show:
+      Book_Info: 書籍詳細
       Author: 著者
       Memo: メモ
       Title: タイトル
       Picture: 画像
-
-      Edit: 編集
-      Back: 戻る
+      Contributor: 投稿者
+      Edit_Book: 書籍編集
 
     edit:
       Editing Book: 書籍編集
-      Show: 詳細表示
-      Back: トップへ
 
     # controller
     create:
@@ -76,9 +74,8 @@ ja:
       Reports: 日報一覧
       Title: タイトル
       Date: 日付
+      Contributor: 投稿者
       Page: ページ
-      To_Books: 書籍一覧へ
-
       New Report: 新規日報
       Show: 詳細表示
       Edit: 編集
@@ -89,18 +86,15 @@ ja:
 
     new:
       New Report: 新規日報
-      Back: 戻る
 
     show:
       Title: タイトル
       Body: 本文
-      Edit: 編集
-      Back: 戻る
+      Contributor: 投稿者
+      Edit_Report: 日報編集
 
     edit:
       Editing Report: 日報編集
-      Show: 詳細表示
-      Back: トップへ
 
     # controller
     create:
@@ -118,6 +112,7 @@ ja:
       Comments: コメント一覧
       Destroy: 削除
       DeleteConfirm: 削除しますか？
+      Contributor: 投稿者
 
     # controller
     create:
@@ -128,6 +123,46 @@ ja:
 
     destroy:
       notice: コメントを削除しました
+
+  users:
+    index:
+      Users: 全ユーザー
+      Name: 名前
+      Image: アイコン
+      Show: 詳細
+      Page: ページ
+    edit:
+      Editing User: ユーザー情報編集
+    show:
+      User_Info: ユーザー情報
+      Name: ユーザー名
+      Delete_Account: アカウント削除
+      DeleteConfirm: 削除しますか？
+    follow:
+      Follow: フォロー
+    unfollow:
+      Unfollow: フォロー解除
+    stats:
+      Followings: フォロー
+      Followers: フォロワー
+    update:
+      notice: ユーザー情報を更新しました
+    destroy:
+      notice: アカウントを削除しました
+    show_follow:
+      Followings: フォロー
+      Info: 詳細
+      Back: 戻る
+    show_follower:
+      Followers: フォロワー
+      Back: 戻る
+    show_timeline:
+      Timeline: タイムライン
+      notice: "%{contributor}さんが%{post}を投稿しました"
+      Book: 書籍
+      Report: 日報
+      Comment: コメント
+      Page: ページ
 
   # kaminari
   views:
@@ -157,6 +192,11 @@ ja:
     application:
       sign_out: "ログアウト"
       signing_in_user: "%{username}でログイン中"
+      Edit: 編集
+      To_Books: 書籍一覧
+      To_Reports: 日報一覧
+      To_Users: 全ユーザー
+      To_Timeline: タイムライン
 
   # devise
   devise:

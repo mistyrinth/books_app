@@ -1,0 +1,23 @@
+<h1><%= t('.Timeline') %></h1>
+
+<% @posts.each do |post| %>
+  <p><%= post.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
+  <% name = find_contributor(post.user_id) %>
+  <p><%= t('.notice', contributor: name, post: t(".#{post.class.name}")) %></p>
+  <% if post.class.name == "Book" %>
+    <%= link_to post.title, book_path(post.id) %>
+  <% elsif post.class.name == "Report" %>
+    <%= link_to post.title, report_path(post.id) %>
+  <% elsif post.class.name == "Comment" %>
+    <% type = post.commentable_type %>
+    <%= link_to post.body, "/#{type}/#{post.commentable_id}" %>
+  <% end %>
+  <br><br>
+<% end %>
+
+<div class="page">
+  <% if @count > 10 %>
+    <p><%= t('.Page') + ":"%></p>
+    <p><%= paginate @posts %></p>
+  <% end %>
+</div>

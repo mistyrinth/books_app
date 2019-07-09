@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h1><%= t('.Book_Info') %></h1>
 <p class="details">
   <strong><%= t('.Title') %>:</strong>
   <%= @book.title %>
@@ -20,10 +19,16 @@
   <%= image_tag(@book.picture_url, width: '150', class: "book-image") if @book.picture.present? %>
 </div>
 
+<p class="details">
+  <strong><%= t('.Contributor') %>:</strong>
+  <%= link_to @book.user.name, user_path(@book.user) %>
+</p>
+
+<br><br>
+<% if @book.user_id == current_user.id %>
+  <%= link_to t('.Edit_Book'), edit_book_path(@book) %>
+<% end %>
+
 <br>
 <%= render 'comments/form', comment: @comment %>
-
 <%= render 'comments/show', comments: @comments %>
-
-<%= link_to t('.Edit'), edit_book_path(@book) %> |
-<%= link_to t('.Back'), books_path %>

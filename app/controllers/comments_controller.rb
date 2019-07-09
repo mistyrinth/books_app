@@ -3,7 +3,10 @@ class CommentsController < ApplicationController
 
   def create
     @resource, @id = request.path.split('/')[1, 2]
-    @comment = Comment.new(body: params[:comment], commentable_type: @resource, commentable_id: @id )
+     @comment = Comment.new(body: params[:comment],
+       commentable_type: @resource,
+       commentable_id: @id,
+       user_id: current_user.id)
 
     respond_to do |format|
       if @comment.save!
@@ -39,5 +42,7 @@ class CommentsController < ApplicationController
   private
   def set_comment
     @comment = Comment.find(params[:id])
+    @comment.user = User.find_by(id: @comment.user_id)
   end
+
 end

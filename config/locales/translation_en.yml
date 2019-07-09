@@ -3,7 +3,8 @@ en:
     models:
       book: book
       report: report
-      comment: コメント
+      comment: comment
+      user: user
 
     attributes:
       book:
@@ -16,6 +17,10 @@ en:
         report: report
         title: title
         body: body
+      user:
+        name: name
+        email: email
+        image: image
 
   helpers:
     label:
@@ -26,11 +31,9 @@ en:
     index:
       Books: Books
       Author: Author
-      Memo: Memo
+      Contributor: 投稿者
       Title: Title
-      Picture: Picture
       Page: Page
-      To_Reports: Reports
 
       New Book: New Book
       Show: Details
@@ -42,21 +45,18 @@ en:
 
     new:
       New Book: New Book
-      Back: Back
 
     show:
+      Book_Info: Book Info
       Author: Author
       Memo: Memo
       Title: Title
       Picture: Picture
-
-      Edit: Edit
-      Back: Back
+      Contributor: Contributor
+      Edit_Book: Edit Book
 
     edit:
       Editing Book: Editing Book
-      Show: Details
-      Back: Top
 
     # controller
     create:
@@ -74,9 +74,8 @@ en:
       Reports: Reports
       Title: Title
       Date: Date
+      Contributor: Contributor
       Page: Page
-      To_Books: Books
-
       New Report: New Report
       Show: Details
       Edit: Edit
@@ -85,22 +84,17 @@ en:
       SaveError: Save failed.
       DeleteConfirm: Are you sure?
 
-      signing_in_user: "Signing in as %{username}"
-
     new:
       New Report: New Report
-      Back: Back
 
     show:
       Title: Title
       Body: Body
-      Edit: Edit
-      Back: Back
+      Contributor: Contributor
+      Edit_Report: Edit Report
 
     edit:
       Editing Report: Editing Report
-      Show: Details
-      Back: Top
 
     # controller
     create:
@@ -118,6 +112,7 @@ en:
       Comments: Comments
       Destroy: Destroy
       DeleteConfirm: Are you sure?
+      Contributor: Contributor
 
     # controller
     create:
@@ -128,6 +123,46 @@ en:
 
     destroy:
     notice: Comment was successfully destroyed.
+
+  users:
+    index:
+      Users: Users
+      Name: Name
+      Image: Image
+      Show: Show
+      Page: Page
+    edit:
+      Editing User: Editing Profile
+    show:
+      User_Info: User Info
+      Name: Name
+      Delete_Account: Delete Account
+      DeleteConfirm: Are you sure?
+    follow:
+      Follow: Follow
+    unfollow:
+      Unfollow: Unfollow
+    stats:
+      Followings: Followings
+      Followers: Followers
+    update:
+      notice: Profile was successfully updated.
+    destroy:
+      notice: Account was successfully destroyed.
+    show_follow:
+      Followings: Followings
+      Info: Info
+      Back: Back
+    show_follower:
+      Followers: Followers
+      Back: Back
+    show_timeline:
+      Timeline: Timeline
+      notice: "%{contributor} posted a %{post}."
+      Book: book
+      Report: report
+      Comment: comment
+      Page: Page
 
   # kaminari
   views:
@@ -157,6 +192,11 @@ en:
     application:
       sign_out: "Sign out"
       signing_in_user: "Signing in as %{username}"
+      Edit: Edit
+      To_Books: Books
+      To_Reports: Reports
+      To_Users: Users
+      To_Timeline: Timeline
 
   # devise
   devise:

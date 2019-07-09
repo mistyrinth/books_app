@@ -19,7 +19,6 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-    @comment = @report.comments.build
 
     respond_to do |format|
       if @report.save
@@ -55,10 +54,15 @@ class ReportsController < ApplicationController
   private
   def set_report
     @report = Report.find(params[:id])
+    @report.user = User.find_by(id: @report.user_id)
   end
 
   def report_params
-    params.require(:report).permit(:title, :body)
+    params.require(:report).permit(
+      :title,
+      :body,
+      :user_id
+    )
   end
 
   def load_commentable

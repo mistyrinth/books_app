@@ -1,0 +1,28 @@
+<h1><%= t('.Users') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.Image') %></th>
+      <th><%= t('.Name') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.image.variant(resize: "50x50") %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to t('.Show'), user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="page">
+  <% if User.count > 5 %>
+    <p><%= t('.Page') + ":"%></p>
+    <p><%= paginate @users %></p>
+  <% end %>
+</div>

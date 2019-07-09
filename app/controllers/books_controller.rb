@@ -14,7 +14,7 @@ class BooksController < ApplicationController
 
   def show
     @comment = @book.comments.build
-    @comments = Comment.where(commentable_type: "books", commentable_id: @book ).order(created_at: :desc)
+    @comments = Comment.where(commentable_type: "books", commentable_id: @book).order(created_at: :desc)
   end
 
   def create
@@ -52,13 +52,19 @@ class BooksController < ApplicationController
   end
 
   private
-
   def set_book
     @book = Book.find(params[:id])
+    @book.user = User.find_by(id: @book.user_id)
   end
 
   def book_params
-    params.require(:book).permit(:title, :memo, :author, :picture)
+    params.require(:book).permit(
+      :title,
+      :memo,
+      :author,
+      :picture,
+      :user_id
+    )
   end
 
   def load_commentable

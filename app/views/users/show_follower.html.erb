@@ -1,0 +1,12 @@
+<h1><%= t('.Followers') %></h1>
+<% @user.followers.each do |user| %>
+  <table>
+    <tr>
+      <td><%= image_tag user.image.variant(resize: "50x50") %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to '詳細', user_path(user) %></td>
+    </tr>
+  </table>
+<% end %>
+<br>
+<%= link_to t('.Back'), user_path(@user) %>

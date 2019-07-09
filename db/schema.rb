@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_050303) do
+ActiveRecord::Schema.define(version: 2019_06_20_054351) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -36,27 +36,43 @@ ActiveRecord::Schema.define(version: 2019_06_04_050303) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "memo"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "author"
     t.string "picture"
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.string "commentable_type"
     t.integer "commentable_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
   create_table "reports", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
