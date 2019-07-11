@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :follows, :followers, :timeline]
 
@@ -8,7 +10,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_path, notice: t('.notice') }
+        format.html { redirect_to user_path, notice: t(".notice") }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -20,19 +22,19 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: t('.notice') }
+      format.html { redirect_to root_path, notice: t(".notice") }
       format.json { head :no_content }
     end
   end
 
   def follows
     @users = @user.followings
-    render 'show_follow'
+    render "show_follow"
   end
 
   def followers
     @users = @user.followers
-    render 'show_follower'
+    render "show_follower"
   end
 
   def timeline
@@ -47,15 +49,15 @@ class UsersController < ApplicationController
     @count = @posts.count
     @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
 
-    render 'show_timeline'
+    render "show_timeline"
   end
 
   private
-  def user_params
-    params.require(:user).permit(:name, :image)
-  end
+    def user_params
+      params.require(:user).permit(:name, :image)
+    end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+    def set_user
+      @user = User.find(params[:id])
+    end
 end

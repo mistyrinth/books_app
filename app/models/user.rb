@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -28,15 +30,14 @@ class User < ApplicationRecord
   end
 
   def self.find_for_github_oauth(auth, signed_in_resource = nil)
-
     user = User.find_by(provider: auth.provider, uid: auth.uid)
     unless user
-    user = User.new(provider: auth.provider,
-                    uid:      auth.uid,
-                    name:     auth.info.name,
-                    email:    User.dummy_email(auth),
-                    password: Devise.friendly_token[0, 20]
-    )
+      user = User.new(provider: auth.provider,
+                      uid:      auth.uid,
+                      name:     auth.info.name,
+                      email:    User.dummy_email(auth),
+                      password: Devise.friendly_token[0, 20]
+      )
     end
     user.skip_confirmation!
     user.save
@@ -54,5 +55,4 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
   end
-
 end

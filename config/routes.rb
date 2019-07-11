@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-  root to: 'books#index'
+  root to: "books#index"
 
   resources :books do
     resources :comments
   end
-  
+
   resources :reports do
     resources :comments
   end

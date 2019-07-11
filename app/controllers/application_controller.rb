@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :authenticate_user!
@@ -9,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options(options = {})
-    { :locale => I18n.locale }.merge options
+    { locale: I18n.locale }.merge options
   end
 
   def after_sign_in_path_for(resource)
@@ -21,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  end
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    end
 end

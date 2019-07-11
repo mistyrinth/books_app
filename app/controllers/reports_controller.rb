@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_report, only: [:show, :edit, :update, :destroy]
@@ -14,7 +16,7 @@ class ReportsController < ApplicationController
 
   def show
     @comment = @report.comments.build
-    @comments = Comment.where(commentable_type: "reports", commentable_id: @report ).order(created_at: :desc)
+    @comments = Comment.where(commentable_type: "reports", commentable_id: @report).order(created_at: :desc)
   end
 
   def create
@@ -22,7 +24,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: t('.notice') }
+        format.html { redirect_to @report, notice: t(".notice") }
         format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }
@@ -34,7 +36,7 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: t('.notice') }
+        format.html { redirect_to @report, notice: t(".notice") }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
@@ -46,26 +48,26 @@ class ReportsController < ApplicationController
   def destroy
     @report.destroy
     respond_to do |format|
-      format.html { redirect_to reports_url, notice: t('.notice') }
+      format.html { redirect_to reports_url, notice: t(".notice") }
       format.json { head :no_content }
     end
   end
 
   private
-  def set_report
-    @report = Report.find(params[:id])
-    @report.user = User.find_by(id: @report.user_id)
-  end
+    def set_report
+      @report = Report.find(params[:id])
+      @report.user = User.find_by(id: @report.user_id)
+    end
 
-  def report_params
-    params.require(:report).permit(
-      :title,
-      :body,
-      :user_id
-    )
-  end
+    def report_params
+      params.require(:report).permit(
+        :title,
+        :body,
+        :user_id
+      )
+    end
 
-  def load_commentable
-    @commentable = @report
-  end
+    def load_commentable
+      @commentable = @report
+    end
 end

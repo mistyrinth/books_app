@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def attach_default_image
     current_user.image.attach(
@@ -8,7 +10,7 @@ module ApplicationHelper
   end
 
   def comments_count(type, id)
-    Comment.where(commentable_type: type, commentable_id: id ).count
+    Comment.where(commentable_type: type, commentable_id: id).count
   end
 
   def find_contributor(user_id)
