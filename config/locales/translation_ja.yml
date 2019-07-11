@@ -149,20 +149,23 @@ ja:
       notice: ユーザー情報を更新しました
     destroy:
       notice: アカウントを削除しました
-    show_follow:
-      Followings: フォロー
-      Info: 詳細
-      Back: 戻る
-    show_follower:
-      Followers: フォロワー
-      Back: 戻る
-    show_timeline:
-      Timeline: タイムライン
-      notice: "%{contributor}さんが%{post}を投稿しました"
-      Book: 書籍
-      Report: 日報
-      Comment: コメント
-      Page: ページ
+    follow_function:
+      show_follow:
+        Followings: フォロー
+        Info: 詳細
+        Back: 戻る
+      show_follower:
+        Followers: フォロワー
+        Info: 詳細
+        Back: 戻る
+    timeline:
+      show_timeline:
+        Timeline: タイムライン
+        notice: "%{contributor}さんが%{post}を投稿しました"
+        Book: 書籍
+        Report: 日報
+        Comment: コメント
+        Page: ページ
 
   # kaminari
   views:

@@ -149,20 +149,23 @@ en:
       notice: Profile was successfully updated.
     destroy:
       notice: Account was successfully destroyed.
-    show_follow:
-      Followings: Followings
-      Info: Info
-      Back: Back
-    show_follower:
-      Followers: Followers
-      Back: Back
-    show_timeline:
-      Timeline: Timeline
-      notice: "%{contributor} posted a %{post}."
-      Book: book
-      Report: report
-      Comment: comment
-      Page: Page
+    follow_function:
+      show_follow:
+        Followings: Followings
+        Info: Info
+        Back: Back
+      show_follower:
+        Followers: Followers
+        Info: Info
+        Back: Back
+    timeline:
+      show_timeline:
+        Timeline: Timeline
+        notice: "%{contributor} posted a %{post}."
+        Book: book
+        Report: report
+        Comment: comment
+        Page: Page
 
   # kaminari
   views:

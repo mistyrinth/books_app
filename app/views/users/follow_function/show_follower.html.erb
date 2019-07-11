@@ -4,7 +4,7 @@
     <tr>
       <td><%= image_tag user.image.variant(resize: "50x50") %></td>
       <td><%= user.name %></td>
-      <td><%= link_to '詳細', user_path(user) %></td>
+      <td><%= link_to t('.Info'), user_path(user) %></td>
     </tr>
   </table>
 <% end %>

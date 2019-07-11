@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :follows, :followers, :timeline]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.page(params[:page]).per(5)
@@ -25,31 +25,6 @@ class UsersController < ApplicationController
       format.html { redirect_to root_path, notice: t(".notice") }
       format.json { head :no_content }
     end
-  end
-
-  def follows
-    @users = @user.followings
-    render "show_follow"
-  end
-
-  def followers
-    @users = @user.followers
-    render "show_follower"
-  end
-
-  def timeline
-    @users = @user.followings
-
-    book_posts = Book.where(user_id: @users.ids)
-    report_posts = Report.where(user_id: @users.ids)
-    comment_posts = Comment.where(user_id: @users.ids)
-    @posts = (book_posts + report_posts + comment_posts).sort_by { |t|
-      t[:updated_at]
-    }.reverse!
-    @count = @posts.count
-    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
-
-    render "show_timeline"
   end
 
   private

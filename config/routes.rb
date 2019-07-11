@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get :follows, :followers, :timeline
+      get :follows, to: "users/follow_function#follows"
+      get :followers, to: "users/follow_function#followers"
+      get :timeline, to: "users/timeline#show"
     end
   end
 
