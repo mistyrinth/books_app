@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_06_20_054351) do
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -57,14 +56,14 @@ ActiveRecord::Schema.define(version: 2019_06_20_054351) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "follow_relations", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "following_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
-    t.index ["following_id"], name: "index_relationships_on_following_id"
+    t.index ["follower_id", "following_id"], name: "index_follow_relations_on_follower_id_and_following_id", unique: true
+    t.index ["follower_id"], name: "index_follow_relations_on_follower_id"
+    t.index ["following_id"], name: "index_follow_relations_on_following_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -97,4 +96,5 @@ ActiveRecord::Schema.define(version: 2019_06_20_054351) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
+
 end

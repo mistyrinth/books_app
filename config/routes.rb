@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :relationships, only: [:create, :destroy]
+  resources :follow_relations, only: [:create, :destroy]
 
   scope "(:locale)" do
     resources :users
