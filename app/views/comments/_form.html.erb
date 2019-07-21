@@ -2,6 +2,7 @@
   <div class="comment">
     <%= form.label :comment %>
     <%= form.text_area :comment, size: "40x3"  %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class="actions">

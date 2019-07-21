@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="headding-container">
   <h1><%= t('.Books') %></h1>
   <p><%= link_to t('.New Book'), new_book_path %></p>
@@ -10,6 +8,7 @@
     <tr>
       <th><%= t('.Title') %></th>
       <th><%= t('.Author') %></th>
+      <th><%= t('.Contributor') %></th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -19,11 +18,12 @@
       <tr>
         <td><%= book.title %></td>
         <td><%= book.author %></td>
+        <td><%= link_to (find_contributor(book.user_id)), user_path(book.user_id) %></td>
         <td>
-          <% count = comments_count("books",book.id) %>
+          <% count = comments_count("books", book.id) %>
           <% if count > 0 %>
             <i class="fas fa-comment index-icon"></i>
-             <%= count %>
+            <%= count %>
           <% end %>
         </td>
         <td>
@@ -32,18 +32,18 @@
             <i class="fas fa-paperclip index-icon"></i>
           <% end %>
         </td>
-        <td><%= link_to t('.Edit'), edit_book_path(book) %></td>
-        <td><%= link_to t('.Destroy'), book, method: :delete, data: { confirm: t('.DeleteConfirm') } %></td>
+        <% if book.user_id == current_user.id %>
+          <td><%= link_to t('.Edit'), edit_book_path(book) %></td>
+          <td><%= link_to t('.Destroy'), book, method: :delete, data: { confirm: t('.DeleteConfirm') } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <div class="page">
-  <% if Book.count > 5%>
+  <% if Book.count > 5 %>
     <p><%= t('.Page') + ":"%></p>
     <p><%= paginate @books %></p>
   <% end %>
 </div>
-
-<%= link_to t('.To_Reports'), reports_path %>

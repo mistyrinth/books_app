@@ -21,10 +21,21 @@
 
     <div class="sign_in_user_container">
       <% if user_signed_in? %>
-        <p class="user_image"><%= image_tag current_user.image.variant(resize: "50x50") %></p>
+        <% if current_user.image.attached? == false %>
+          <%= attach_default_image %>
+        <% end %>
+        <p class="user_image"><%= link_to image_tag(current_user.image.variant(resize: "50x50")), user_path(current_user.id) %></p>
+
         <p class="user_name"><%= t('.signing_in_user', username: current_user.name) %><p>
+
+        <% if current_user.provider == "" %>
+          <p class="edit_profile"><%= link_to t('.Edit'), edit_user_path(current_user.id) %></p>
+        <% end %>
       <% end %>
     </div>
+
+    <p id="notice"><%= notice %></p>
+    <hr>
 
   </header>
 
@@ -32,7 +43,13 @@
     <%= yield %>
 
     <br><br>
+
     <% if user_signed_in? %>
+      <%= link_to t('.To_Books'), books_path %> |
+      <%= link_to t('.To_Reports'), reports_path %> |
+      <%= link_to t('.To_Users'), users_path %> |
+      <%= link_to t('.To_Timeline'), timeline_user_path(current_user.id) %>
+      <br><br>
       <p><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %></p>
     <% end %>
   </body>

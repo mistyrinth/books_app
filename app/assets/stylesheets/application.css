@@ -35,8 +35,32 @@ nav {
   padding-bottom: 16px;
 }
 
+hr {
+  height: 1px;
+  border: none;
+  border-top: 3px #98b8f9 dotted;
+}
+
 .user_image {
   padding-right: 4px;
+}
+
+.user_image > a {
+  background-color: #FFF;
+}
+
+.user_image > a:hover {
+  opacity: 0.5;
+}
+
+.edit_profile {
+  padding-left: 12px;
+}
+
+/* devise */
+
+.checkbox {
+  display: flex;
 }
 
 /* index.html.erb */
@@ -77,19 +101,42 @@ th {
   padding: 6px 0;
 }
 
-.comment-body{
+.comment-body {
   padding: 6px 0;
 }
 
 .book-image-detail {
   display: flex;
 }
+
+/* edit.html.erb */
+
+input[type=submit] {
+  padding: 5px 12px; 
+  background: #b8c9eb;
+  border: 0 none;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
 /* comments/_form.html.erb */
 
 .book-image {
   padding: 0 10px ;
 }
 
-.comment{
+.comment {
   padding-top: 12px;
+}
+
+/* follow.html.erb */
+
+.follow_button > input {
+  background: #bff0d5;
+}
+
+/* unfollow.html.erb */
+
+.unfollow_button > input {
+  background: #fc8985;
 }

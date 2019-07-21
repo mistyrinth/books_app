@@ -1,0 +1,13 @@
+<h1><%= t('.User_Info') %></h1>
+<p><strong><%= t('.Name') %>:</strong>
+<%= @user.name %></p>
+<%= image_tag @user.image.variant(resize: "50x50") %>
+<br>
+
+<%= render 'follow_form' %>
+<br>
+<%= render 'stats' %>
+<br><br>
+<% if @user.id == current_user.id %>
+  <%= link_to t('.Delete_Account'), @user, method: :delete, data: { confirm: t('.DeleteConfirm') } %>
+<% end %>
